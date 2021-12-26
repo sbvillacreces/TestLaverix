@@ -47,7 +47,7 @@
                         <label for="floatingInput">Teléfono</label>
                     </div>
                     <div class="form-floating mb-1">
-                        <input type="date" name="fechanacimiento" class="form-control" id="floatingInput" max="<?= date('Y-m-d'); ?>">
+                        <input type="date" name="fechanacimiento" class="form-control" id="floatingInput" value="<?= date('Y-m-d'); ?>" max="<?= date('Y-m-d'); ?>">
                         <label for="floatingInput">Fecha de Nacimiento</label>
                     </div>
                     <div class="form-floating">

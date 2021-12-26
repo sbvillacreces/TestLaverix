@@ -61,7 +61,7 @@
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->direccion }}</td>
                                     <td>{{ $user->telefono }}</td>
-                                    <td>{{ $user->fechanacimiento }}</td>
+                                    <td>{{ date('d-M.Y', strtotime($user->fechanacimiento)) }}</td>
                                     <td>{{ $user->lastaccess }}</td>
                                     <td>{{ $user->rol ? $roles[$user->rol] : 'Sin rol asignado' }}</td>
                                     <td class="btn-group"><a href="{{ route('users.edit', $user->id) }}"
