@@ -1,5 +1,5 @@
 # TestLaverix
- # Pasos para instalación:#
+ # Pasos para instalación:
  Es importante realizar todos estos pasos dentro de la carpeta del proyecto
  * git clone https://github.com/sbvillacreces/TestLaverix
  * Para instalar composer: composer install 
