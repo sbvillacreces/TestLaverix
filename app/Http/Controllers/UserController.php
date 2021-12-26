@@ -20,13 +20,13 @@ class UserController extends Controller
         $txt=trim($request->get('txt'));
         $users=User::where('name','LIKE','%'.$txt.'%')
         ->sortable()
-        ->paginate(5);
+        ->paginate(15);
         $roles=[
             1=>"Administrador",
             2=>"Usuario",
             3=>"Invitado"
         ];
-        return view('users.index',compact('users','txt',"roles"));
+        return view('users.index',compact('users','txt','roles'));
     }
 
     /**
@@ -75,6 +75,13 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        $user=User::findOrFail($id);
+        $roles=[
+            1=>"Administrador",
+            2=>"Usuario",
+            3=>"Invitado"
+        ];
+         return view('users.show',compact('user','roles'));  
     }
 
     /**
@@ -87,7 +94,6 @@ class UserController extends Controller
     {
         //
         $user=User::findOrFail($id);
-      // return $user;
          return view('users.edit',compact('user'));        
     }
 

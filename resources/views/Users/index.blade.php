@@ -15,19 +15,21 @@
 
 <body>
     <div class="container">
-        <h1 class="display-3"style="margin-block: 15px; text-align:center;color:lightseagreen">Lista de Usuarios</h1>
+        <h1 class="display-3" style="margin-block: 15px; text-align:center;color:lightseagreen">Lista de Usuarios
+        </h1>
         <div class="row">
             <div class="col-xl-12">
                 <form action="{{ route('users.index') }}" method="get">
-                    <div class="form-row">                 
+                    <div class="form-row">
                         <div class="form-floating mb-1">
-                            <input type="text" class="form-control" id="floatingInput"
-                            placeholder="Búsqueda" name="txt" value="{{ $txt }}">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Búsqueda"
+                                name="txt" value="{{ $txt }}">
                             <label for="floatingInput">Búsqueda</label>
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-outline-info" value="Buscar"style="margin-bottom:10px;">
-                                <a href="{{ route('users.create') }}" class="btn btn-outline-success" style="margin-bottom:10px;">Nuevo Usuario</a>
+                            <input type="submit" class="btn btn-outline-info" value="Buscar" style="margin-bottom:10px;">
+                            <a href="{{ route('users.create') }}" class="btn btn-outline-success"
+                                style="margin-bottom:10px;">Nuevo Usuario</a>
                         </div>
                         @include('flash-message')
                     </div>
@@ -61,15 +63,18 @@
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->direccion }}</td>
                                     <td>{{ $user->telefono }}</td>
-                                    <td>{{ date('d-M.Y', strtotime($user->fechanacimiento)) }}</td>
-                                    <td>{{ $user->lastaccess }}</td>
+                                    <td>{{ date('d-M-Y', strtotime($user->fechanacimiento)) }}</td>
+                                    <td> {{ $user->lastaccess ? date("F j, Y, g:i a", strtotime($user->lastaccess)): 'No ha accedido al sistema' }}</td>
                                     <td>{{ $user->rol ? $roles[$user->rol] : 'Sin rol asignado' }}</td>
                                     <td class="btn-group"><a href="{{ route('users.edit', $user->id) }}"
                                             class="btn btn-outline-warning btn-sm">Editar</a>
-                                        <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal"
-                                            data-bs-target="#modal-delete-{{ $user->id }}">
+                                        <a href="{{ route('users.show', $user->id) }}"
+                                            class="btn btn-outline-success btn-sm">Ver</a>
+                                        <button type="button" class="btn btn-outline-danger btn-sm"
+                                            data-bs-toggle="modal" data-bs-target="#modal-delete-{{ $user->id }}">
                                             Eliminar
                                         </button>
+
                                     </td>
                                 </tr>
                                 @include('users.delete')
@@ -77,8 +82,10 @@
                         @endif
                     </tbody>
                 </table>
-                {!!$users->appends(\Request::except('page'))->render()!!}
-                <button type="button" class="btn btn-outline-danger" onclick = "location='/dashboard'">Regresar</button>
+                {!! $users->appends(\Request::except('page'))->render() !!}
+                <button type="button" class="btn btn-outline-danger" onclick="location='/dashboard'">Regresar</button>
+
+
             </div>
         </div>
     </div>

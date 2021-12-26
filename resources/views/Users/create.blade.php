@@ -57,7 +57,7 @@
                             <option value="2">Usuario</option>
                             <option value="3">Invitado</option>
                         </select>
-                        <label for="floatingSelect">Rol</label>
+                        <label for="floatingSelect">Rol </label>
                     </div>
                 </div>
                 <div class="form-group" style="margin-top:10px;">
