@@ -23,17 +23,17 @@
 
             <div class="mt-4">
                 <x-jet-label for="fechanacimiento" value="{{ __('Fecha de Nacimiento') }}" />
-                <x-jet-input id="fechanacimiento" class="block mt-1 w-full" type="date" name="fechanacimiento" required />
+                <x-jet-input id="fechanacimiento" class="block mt-1 w-full" type="date" :value="old('fechanacimiento')" name="fechanacimiento" required />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="direccion" value="{{ __('Dirección') }}" />
-                <x-jet-input id="direccion" class="block mt-1 w-full" type="text" maxlength=30 name="direccion" required />
+                <x-jet-input id="direccion" class="block mt-1 w-full" type="text" :value="old('direccion')" maxlength=30 name="direccion" required />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="telefono" value="{{ __('Teléfono') }}" />
-                <x-jet-input id="telefono" class="block mt-1 w-full" type="text" maxlength=10 name="telefono" required />
+                <x-jet-input id="telefono" class="block mt-1 w-full" type="text" :value="old('telefono')" maxlength=10 name="telefono" required />
             </div>
 
             <div class="mt-4">
